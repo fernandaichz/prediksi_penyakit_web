@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Prediksi Penyakit dengan Button Toggle</title>
+  <title>Prediksi Penyakit</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <style>
     body {
@@ -19,17 +19,16 @@
       background: rgba(255, 255, 255, 0.95);
       border-radius: 15px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-      max-width: 480px;
+      max-width: 600px;
       width: 100%;
-      padding: 2rem 2.5rem;
+      padding: 2rem;
       color: #333;
     }
     h2 {
       font-weight: 700;
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
       color: #2c3e50;
       text-align: center;
-      letter-spacing: 1px;
     }
     .btn-check:checked + .btn {
       background-color: #3498db;
@@ -40,26 +39,21 @@
       margin: 0.25rem;
       font-weight: 600;
       border-radius: 10px;
-      padding: 0.6rem 1.2rem;
-      transition: background-color 0.3s ease, box-shadow 0.3s ease;
-      user-select: none;
+      padding: 0.5rem 1rem;
     }
-    button.btn-submit {
+    .btn-submit {
       background: linear-gradient(45deg, #2980b9, #3498db);
       border: none;
       width: 100%;
       font-weight: 600;
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       padding: 0.75rem;
       border-radius: 10px;
       color: white;
-      transition: background 0.4s ease;
-      box-shadow: 0 5px 15px rgba(41, 128, 185, 0.6);
       margin-top: 1.5rem;
     }
-    button.btn-submit:hover {
+    .btn-submit:hover {
       background: linear-gradient(45deg, #1c5980, #217dbb);
-      box-shadow: 0 8px 20px rgba(28, 89, 128, 0.8);
     }
     .alert-info {
       background-color: #d1e7f7;
@@ -68,92 +62,80 @@
       text-align: center;
       border-radius: 10px;
       margin-top: 1.5rem;
-      padding: 1rem 1.5rem;
-      box-shadow: 0 4px 10px rgba(20, 83, 116, 0.3);
+      padding: 1rem;
     }
   </style>
 </head>
 <body>
-
-  <div class="card shadow-sm">
+  <div class="card">
     <h2>Form Prediksi Penyakit</h2>
     <form method="POST" action="/predict">
 
-      <div class="mb-3">
-  <label for="nama" class="form-label">Nama Anda</label>
-  <input type="text" class="form-control" id="nama" name="nama" required placeholder="Masukkan nama lengkap">
-</div>
       
-     <!-- Di dalam <form> -->
-<input type="checkbox" class="btn-check" name="demam" id="demam" autocomplete="off" value="1" />
-<label class="btn btn-outline-primary" for="demam">Demam</label>
+      <div class="mb-3">
+        <input type="text" class="form-control" name="nama" placeholder="Masukkan Nama Anda" required>
+      </div>
 
-<input type="checkbox" class="btn-check" name="batuk" id="batuk" autocomplete="off" value="1" />
-<label class="btn btn-outline-primary" for="batuk">Batuk</label>
-
-<input type="checkbox" class="btn-check" name="sakit_kepala" id="sakit_kepala" autocomplete="off" value="1" />
-<label class="btn btn-outline-primary" for="sakit_kepala">Sakit Kepala</label>
-
-<input type="checkbox" class="btn-check" name="nyeri_otot" id="nyeri_otot" autocomplete="off" value="1" />
-<label class="btn btn-outline-primary" for="nyeri_otot">Nyeri Otot</label>
-
-<input type="checkbox" class="btn-check" name="sesak_nafas" id="sesak_nafas" autocomplete="off" value="1" />
-<label class="btn btn-outline-primary" for="sesak_nafas">Sesak Nafas</label>
-
-<input type="checkbox" class="btn-check" name="pilek" id="pilek" autocomplete="off" value="1" />
-<label class="btn btn-outline-primary" for="pilek">Pilek</label>
-
-<input type="checkbox" class="btn-check" name="mual" id="mual" autocomplete="off" value="1" />
-<label class="btn btn-outline-primary" for="mual">Mual</label>
-
-<input type="checkbox" class="btn-check" name="muntah" id="muntah" autocomplete="off" value="1" />
-<label class="btn btn-outline-primary" for="muntah">Muntah</label>
-
-<input type="checkbox" class="btn-check" name="diare" id="diare" autocomplete="off" value="1" />
-<label class="btn btn-outline-primary" for="diare">Diare</label>
-
-<input type="checkbox" class="btn-check" name="sakit_tenggorokan" id="sakit_tenggorokan" autocomplete="off" value="1" />
-<label class="btn btn-outline-primary" for="sakit_tenggorokan">Sakit Tenggorokan</label>
-
-<input type="checkbox" class="btn-check" name="hilang_penciuman" id="hilang_penciuman" autocomplete="off" value="1" />
-<label class="btn btn-outline-primary" for="hilang_penciuman">Hilang Penciuman</label>
-
-<input type="checkbox" class="btn-check" name="ruam_kulit" id="ruam_kulit" autocomplete="off" value="1" />
-<label class="btn btn-outline-primary" for="ruam_kulit">Ruam Kulit</label>
-
-<input type="checkbox" class="btn-check" name="mata_merah" id="mata_merah" autocomplete="off" value="1" />
-<label class="btn btn-outline-primary" for="mata_merah">Mata Merah</label>
-
-<input type="checkbox" class="btn-check" name="nyeri_perut" id="nyeri_perut" autocomplete="off" value="1" />
-<label class="btn btn-outline-primary" for="nyeri_perut">Nyeri Perut</label>
-
-<input type="checkbox" class="btn-check" name="pusing" id="pusing" autocomplete="off" value="1" />
-<label class="btn btn-outline-primary" for="pusing">Pusing</label>
-
-<input type="checkbox" class="btn-check" name="kehilangan_nafsu_makan" id="kehilangan_nafsu_makan" autocomplete="off" value="1" />
-<label class="btn btn-outline-primary" for="kehilangan_nafsu_makan">Kehilangan Nafsu Makan</label>
-
-<input type="checkbox" class="btn-check" name="kedinginan" id="kedinginan" autocomplete="off" value="1" />
-<label class="btn btn-outline-primary" for="kedinginan">Kedinginan</label>
-
-<input type="checkbox" class="btn-check" name="detak_jantung_cepat" id="detak_jantung_cepat" autocomplete="off" value="1" />
-<label class="btn btn-outline-primary" for="detak_jantung_cepat">Detak Jantung Cepat</label>
-
-<input type="checkbox" class="btn-check" name="keringat_dingin" id="keringat_dingin" autocomplete="off" value="1" />
-<label class="btn btn-outline-primary" for="keringat_dingin">Keringat Dingin</label>
-
-<input type="checkbox" class="btn-check" name="menggigil" id="menggigil" autocomplete="off" value="1" />
-<label class="btn btn-outline-primary" for="menggigil">Menggigil</label>
-
-      <button type="submit" class="btn-submit">Prediksi</button>
-    </form>
-
-    {% if hasil %}
-    <div class="alert alert-info mt-4">
-      <strong>Hasil Prediksi:</strong> {{ hasil, nama }}
-    </div>
-    {% endif %}
+      <div class="mb-3">
+    <input type="number" class="form-control" name="tahun_lahir" placeholder="Masukkan Tahun Lahir Anda" required>
   </div>
+
+      
+      <input type="checkbox" class="btn-check" name="demam" id="demam" autocomplete="off" value="1" />
+      <label class="btn btn-outline-primary" for="demam">Demam</label>
+
+      <input type="checkbox" class="btn-check" name="batuk" id="batuk" autocomplete="off" value="1" />
+      <label class="btn btn-outline-primary" for="batuk">Batuk</label>
+
+      <input type="checkbox" class="btn-check" name="sakit_kepala" id="sakit_kepala" autocomplete="off" value="1" />
+      <label class="btn btn-outline-primary" for="sakit_kepala">Sakit Kepala</label>
+
+      <input type="checkbox" class="btn-check" name="nyeri_otot" id="nyeri_otot" autocomplete="off" value="1" />
+      <label class="btn btn-outline-primary" for="nyeri_otot">Nyeri Otot</label>
+
+      <input type="checkbox" class="btn-check" name="sesak_nafas" id="sesak_nafas" autocomplete="off" value="1" />
+      <label class="btn btn-outline-primary" for="sesak_nafas">Sesak Nafas</label>
+
+      <input type="checkbox" class="btn-check" name="pilek" id="pilek" autocomplete="off" value="1" />
+      <label class="btn btn-outline-primary" for="pilek">Pilek</label>
+
+      <input type="checkbox" class="btn-check" name="mual" id="mual" autocomplete="off" value="1" />
+      <label class="btn btn-outline-primary" for="mual">Mual</label>
+
+      <input type="checkbox" class="btn-check" name="muntah" id="muntah" autocomplete="off" value="1" />
+      <label class="btn btn-outline-primary" for="muntah">Muntah</label>
+
+      <input type="checkbox" class="btn-check" name="diare" id="diare" autocomplete="off" value="1" />
+      <label class="btn btn-outline-primary" for="diare">Diare</label>
+
+      <input type="checkbox" class="btn-check" name="sakit_tenggorokan" id="sakit_tenggorokan" autocomplete="off" value="1" />
+      <label class="btn btn-outline-primary" for="sakit_tenggorokan">Sakit Tenggorokan</label>
+
+      <input type="checkbox" class="btn-check" name="hilang_penciuman" id="hilang_penciuman" autocomplete="off" value="1" />
+      <label class="btn btn-outline-primary" for="hilang_penciuman">Hilang Penciuman</label>
+
+      <input type="checkbox" class="btn-check" name="ruam_kulit" id="ruam_kulit" autocomplete="off" value="1" />
+      <label class="btn btn-outline-primary" for="ruam_kulit">Ruam Kulit</label>
+
+      <input type="checkbox" class="btn-check" name="mata_merah" id="mata_merah" autocomplete="off" value="1" />
+      <label class="btn btn-outline-primary" for="mata_merah">Mata Merah</label>
+
+      <input type="checkbox" class="btn-check" name="nyeri_perut" id="nyeri_perut" autocomplete="off" value="1" />
+      <label class="btn btn-outline-primary" for="nyeri_perut">Nyeri Perut</label>
+
+      <input type="checkbox" class="btn-check" name="pusing" id="pusing" autocomplete="off" value="1" />
+      <label class="btn btn-outline-primary" for="pusing">Pusing</label>
+
+     
+    <button type="submit" class="btn btn-submit">Prediksi</button>
+</form>
+
+{% if hasil %}
+<div class="alert alert-info mt-4">
+  <strong>{{ nama }}</strong> ({{ umur }} tahun)<br>
+  <strong>Hasil Prediksi:</strong> {{ hasil }}
+</div>
+{% endif %}
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
